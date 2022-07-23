@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ticket.Models
 {
-    public class About
-    {
+    public class About {
+        [Key]
         public int Id { get; set; }
         public string Title { get; set; }
         public int Description { get; set; }
         [NotMapped]
         [Required]
-        public IFormFile Photo { get; set; }
+        public byte[] Photo { get; set; }
     }
 }

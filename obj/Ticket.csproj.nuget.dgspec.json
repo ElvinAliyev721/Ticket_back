@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\visual\\Ticket\\Ticket.csproj": {}
+    "C:\\Users\\vusal\\Desktop\\Ticket_back\\Ticket.csproj": {}
   },
   "projects": {
-    "C:\\visual\\Ticket\\Ticket.csproj": {
+    "C:\\Users\\vusal\\Desktop\\Ticket_back\\Ticket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\visual\\Ticket\\Ticket.csproj",
+        "projectUniqueName": "C:\\Users\\vusal\\Desktop\\Ticket_back\\Ticket.csproj",
         "projectName": "Ticket",
-        "projectPath": "C:\\visual\\Ticket\\Ticket.csproj",
-        "packagesPath": "C:\\Users\\Elvin\\.nuget\\packages\\",
-        "outputPath": "C:\\visual\\Ticket\\obj\\",
+        "projectPath": "C:\\Users\\vusal\\Desktop\\Ticket_back\\Ticket.csproj",
+        "packagesPath": "C:\\Users\\vusal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vusal\\Desktop\\Ticket_back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vusal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

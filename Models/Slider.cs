@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,14 +7,15 @@ namespace Ticket.Models
 {
     public class Slider
     {
+        [Key]
         public int Id { get; set; }
         [Required]
-        public string Image { get; set; }
+        public string ImageText { get; set; }
         [NotMapped]
         [Required]
-        public IFormFile Photo { get; set; }
+        public byte[] Photo { get; set; }
         [NotMapped]
         [Required]
-        public IFormFile[] Photos { get; set; }
+        public List<byte[]> Photos { get; set; }
     }
 }
