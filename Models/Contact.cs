@@ -4,6 +4,7 @@ namespace Ticket.Models
 {
     public class Contact
     {
+        [Key]
         public int Id { get; set; }
         [Required, EmailAddress]
         [DataType(DataType.EmailAddress)]
