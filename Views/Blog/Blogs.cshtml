@@ -1,0 +1,61 @@
+﻿@model IPagedList<BlogsVM>
+
+@{
+    ViewData["Title"] = "Blogs";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <!--page-title area-->
+    <section class="page-title-area">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-inner">
+                        <h2 class="page-title">OUR BLOGS</h2>
+                        <ul class="page-list">
+                            <li><a href="/Home/Index">Home</a></li>
+                            <li>Blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page-title area end-->  
+
+    <!-- blog area Start -->
+    <div class="blog-area pd-top-150 pd-bottom-120">
+        <div class="container">
+            <div class="row justify-content-center" id="blogs-container">
+
+            @foreach (BlogsVM item in Model)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-blog-inner">
+                        <div class="thumb">
+                            <img src="~/MainPageTemplate/assets/img/blog/1.png" alt="img">
+                        </div>
+                        <div class="details">
+                            <div class="date">@item.Date.ToString("dd-MMM-yyyy")</div>
+                            <h5><a href="/Blog/BlogDetails/@item.Id">@item.Title</a></h5>
+                            <p>@item.Content</p>
+                        </div>
+                    </div>
+                </div>
+            }    
+
+            </div>
+        </div>
+    </div>
+    <!-- blog area End -->
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Blogs", "Blog", new { page }), new PagedListRenderOptions
+{
+    PageClasses = new string[] { "pagination, pagination-custom" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    ContainerDivClasses = new string[] { "col-lg-12, text-center, pagination-cont-custom" },
+    ActiveLiElementClass = "active"
+})

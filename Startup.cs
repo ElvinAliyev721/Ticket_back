@@ -57,8 +57,14 @@ namespace Ticket
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                  name: "areas",
+                  areaName: "AdminPanel",
+                  pattern: "AdminPanel/{controller=Dashboard}/{action=Index}/{id?}"
+                );
+
                 endpoints.MapControllerRoute(
-                    name:"default",
+                    name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
             });

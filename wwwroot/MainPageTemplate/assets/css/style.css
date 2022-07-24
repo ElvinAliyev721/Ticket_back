@@ -1003,7 +1003,6 @@ ul {
 .pagination {
   display: inline-flex;
   text-align: center;
-  margin: 70px 0 0 0;
 }
 .pagination .page-item {
   margin: 0 5px;
@@ -1025,10 +1024,38 @@ ul {
   color: #fff;
 }
 
+.pagination .page-item a, .pagination .page-item span {
+  padding: 20px 26px 20px 26px;
+  background: #f3f4f9;
+  color: var(--heading-color);
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
+}
+.pagination .page-item.active a, .pagination .page-item span {
+  background: var(--main-color);
+  color: #fff;
+}
+.pagination .page-item:hover a, .pagination .page-item span {
+    background: var(--main-color);
+    color: #fff;
+}
+.pagination-cont-custom {
+    margin-bottom:30px;
+    margin-top:0;
+    padding-top:0;
+    text-align:center;
+}
+
+.pagination-custom{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 /************ page navigation ************/
 .td-page-navigation .pagination {
-  display: inline-flex;
-  margin: 10px 0 0 0;
+    display: inline-flex;
+    margin: 10px 0 0 0;
 }
 .td-page-navigation .pagination .pagination-arrow a {
   border: 0;
@@ -1059,7 +1086,7 @@ ul {
   background: var(--main-color);
   color: #fff;
 }
-.td-page-navigation .pagination li a.active {
+.td-page-navigation .pagination li.active a {
   background: var(--main-color);
 }
 
@@ -2706,11 +2733,12 @@ ul {
     #page-title-area
 --------------------------------------------------------------*/
 .page-title-area {
-  padding: 250px 0 163px;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center !important;
-  position: relative;
+    padding: 250px 0 163px;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center;
+    background: url('../img/bg/bg-blog.jpg');
+    position: relative;
 }
 .page-title-area .breadcrumb-inner .page-title {
   color: #fff;
@@ -2759,6 +2787,9 @@ ul {
   overflow: hidden;
 }
 .single-blog-inner .thumb img {
+  width:450px;
+  height:262px;
+  background-size:cover;
   transform: scale(1);
   transition: 0.9s;
 }

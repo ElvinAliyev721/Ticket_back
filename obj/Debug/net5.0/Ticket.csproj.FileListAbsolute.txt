@@ -294,3 +294,10 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Ticket.genruntimeconfig.cach
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\ref\Ticket.dll
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Shared\_UserLayout.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Blog\Blogs.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\bin\Debug\net5.0\libman.json
+C:\Users\vusal\Desktop\Ticket_back\bin\Debug\net5.0\JetBrains.Annotations.dll
+C:\Users\vusal\Desktop\Ticket_back\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\vusal\Desktop\Ticket_back\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Ticket.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Blog\BlogDetails.cshtml.g.cs
