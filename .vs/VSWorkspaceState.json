@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Views",
+    "\\Views\\Blog",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Views\\Shared\\_UserLayout.cshtml",
+  "SelectedNode": "\\Ticket.sln",
   "PreviewInSolutionExplorer": false
 }
