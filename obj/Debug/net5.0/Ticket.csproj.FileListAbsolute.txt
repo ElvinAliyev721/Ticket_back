@@ -460,3 +460,8 @@ C:\visual\Ticket_back\obj\Debug\net5.0\ref\Ticket.dll
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\Tickets.cshtml.g.cs

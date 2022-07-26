@@ -10,8 +10,8 @@ using Ticket.DAL;
 namespace Ticket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220726064056_AddnewFormOfAbout")]
-    partial class AddnewFormOfAbout
+    [Migration("20220726184313_mig_Init")]
+    partial class mig_Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -159,13 +159,16 @@ namespace Ticket.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Description")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(210)
+                        .HasColumnType("nvarchar(210)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

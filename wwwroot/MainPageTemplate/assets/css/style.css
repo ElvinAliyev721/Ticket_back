@@ -2732,6 +2732,10 @@ ul {
 /*--------------------------------------------------------------
     #page-title-area
 --------------------------------------------------------------*/
+.page-title-area-pricing {
+    background-image: url('../img/banner/ticket_pricing_img.jpg') !important;
+}
+
 .page-title-area {
     padding: 250px 0 163px;
     background-repeat: no-repeat;

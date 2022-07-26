@@ -10,8 +10,8 @@ using Ticket.DAL;
 namespace Ticket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220726091504_AddnewFormforAllAbout2")]
-    partial class AddnewFormforAllAbout2
+    [Migration("20220726211424_mig_Warrant_changings")]
+    partial class mig_Warrant_changings
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -360,11 +360,14 @@ namespace Ticket.Migrations
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

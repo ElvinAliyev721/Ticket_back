@@ -1,0 +1,65 @@
+﻿@model IPagedList<WarrantsVM>
+
+@{
+    ViewData["Title"] = "Tickets";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <!--page-title area-->
+    <section class="page-title-area page-title-area-pricing">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-inner">
+                        <h2 class="page-title">Biletlərimiz</h2>
+                        <ul class="page-list">
+                            <li><a href="/Home/Index">Home</a></li>
+                            <li>Qiymətlər</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page-title area end-->  
+
+    <!-- Pricing area Start -->
+    <div class="Pricing-area partner-page-area pd-top-150 pd-bottom-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                @foreach (WarrantsVM item in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-ticket-price-inner text-center">
+                            <div class="icon">
+                                <img src="~/MainPageTemplate/assets/img/icon/3.png" alt="img">
+                            </div>
+                            <h2 class="title">@item.Name</h2>
+                            <h2 class="price">@item.Price AZN</h2>
+                            <div class="list">
+                                <ul>
+                                    <li><i class='bx bxs-category-alt'></i> Kateqoriya : @item.Category</li>
+                                    <li><i class='bx bxs-calendar-plus' ></i> Qoyulma tarixi : @item.CreateDate.ToString("dd/MM/yyyy") </li>
+                                    <li><i class='bx bxs-calendar-x'></i> Bitiş tarixi : @item.ExpireDate.ToString("dd/MM/yyyy")</li>
+                                    <li>@item.Description</li>
+                                </ul>
+                            </div>
+                            <a class="btn btn-red" href="/Ticket/TicketDetails/@item.Id"><img src="~/MainPageTemplate/assets/img/icon/1.png" alt="img">Ətraflı - Bileti Al</a>
+                        </div>
+                    </div>   
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Pricing area End -->
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Tickets", "Ticket", new { page }), new PagedListRenderOptions
+{
+    PageClasses = new string[] { "pagination, pagination-custom" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    ContainerDivClasses = new string[] { "col-lg-12, text-center, pagination-cont-custom" },
+    ActiveLiElementClass = "active"
+})
