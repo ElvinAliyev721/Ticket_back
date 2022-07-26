@@ -2,7 +2,7 @@
 
 namespace Ticket.Migrations
 {
-    public partial class first_migration : Migration
+    public partial class AddnewFormforAllAbout2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

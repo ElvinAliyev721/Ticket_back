@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="icon" href="~/MainPageTemplate/assets/img/logo_icon.png">
     <title>BillAir - Travel Agency</title>
 
@@ -81,7 +82,15 @@
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
-                    <a class="btn btn-red" href="login.html">Login</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-red" asp-controller="Account" asp-action="LogOut">Log Out</a>
+                        <span>@User.Identity.Name</span>
+                    }
+                    else
+                    {
+                        <a class="btn btn-red" asp-controller="Account" asp-action="Login">Login</a>
+                    }
                 </div>
             </div>
         </nav>

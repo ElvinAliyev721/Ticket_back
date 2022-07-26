@@ -7,10 +7,13 @@ namespace Ticket.Models
     public class About {
         [Key]
         public int Id { get; set; }
+        [Required,MinLength(25)]
         public string Title { get; set; }
-        public int Description { get; set; }
+        [Required,MinLength(120),MaxLength(210)]
+        public string Description { get; set; }
+        public string Image { get; set; }
         [NotMapped]
         [Required]
-        public byte[] Photo { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }

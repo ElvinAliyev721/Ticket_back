@@ -1,0 +1,71 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+    <!-- login area Start -->
+    <div class="login-area pd-top-150 pd-bottom-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 mt-lg-0 mt-5">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form class="login-area-inner border-lg-left pl-lg-5" method="post">
+                        <h2>Register</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+                        <div class="row">
+                            <div class="col-12">
+                                <label asp-for="FullName" class="single-input-inner">
+                                    <span>Full Name</span>
+                                    <input asp-for="FullName" type="text" placeholder="Full Name">
+                                    <i class="la la-check"></i>
+                                </label>
+                                <span class="text-danger" asp-validation-for="FullName"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="UserName" class="single-input-inner">
+                                    <span>Username</span>
+                                    <input asp-for="UserName" type="text" placeholder="Username">
+                                    <i class="la la-check"></i>
+                                </label>
+                                <span class="text-danger" asp-validation-for="UserName"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Email" class="single-input-inner">
+                                    <span>Email</span>
+                                    <input asp-for="Email" type="text" placeholder="Email">
+                                    <i class="la la-check"></i>
+                                </label>
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Password" class="single-input-inner">
+                                    <span>Password</span>
+                                    <input asp-for="Password" type="text" placeholder="Password">
+                                    <i class="la la-check"></i>
+                                </label>
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="ConfirmPassword" class="single-input-inner">
+                                    <span>Re-type Password</span>
+                                    <input asp-for="ConfirmPassword" type="text" placeholder="Re-type Password">
+                                    <i class="la la-check"></i>
+                                </label>
+                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                            </div>
+                            <div class="col-12 d-flex justify-content-between">
+                                <span>Already have account? </span>
+                                <a asp-action="Login">Login</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-red w-100 mt-3">Register Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login area End -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>

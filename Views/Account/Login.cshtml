@@ -1,0 +1,47 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+    <!-- login area Start -->
+    <div class="login-area pd-top-150 pd-bottom-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form method="post" class="login-area-inner pr-lg-4">
+                        <h2>Login</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+                        <label asp-for="Email" class="single-input-inner">
+                            <span> Email address*</span>
+                            <input asp-for="Email" type="text" placeholder="your@gmail.com">
+                            @*<i class="la la-check"></i>*@
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </label>
+                        <label asp-for="Password" class="single-input-inner">
+                            <span>Password</span>
+                            <input asp-for="Password" type="text" placeholder="Password">
+                            @*<i class="la la-check"></i>*@
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="single-checkbox-inner">
+                                    <a asp-action="Register">Create</a>
+                                </label>
+                            </div>
+                            <div class="col-md-6 text-md-right">
+                                <label class="single-checkbox-inner">
+                                    <span>Don't have account?</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-red w-100 mt-3" >Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login area End -->
