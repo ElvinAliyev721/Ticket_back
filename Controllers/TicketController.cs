@@ -54,13 +54,15 @@ namespace Ticket.Controllers
         {
             try
             {
-                Warrant warrant = await _context.Warrants.FindAsync(id);
+                Warrant warrant = await _context.Warrants.Include(x=>x.Category).FirstOrDefaultAsync(x=>x.Id==id);
+                if(warrant!=null)
                 return View(warrant);
+                return RedirectToAction("Error404", "Error");
+
             }
             catch (Exception)
             {
-                id = 1;
-                return RedirectToAction("BlogDetails", id);
+                return RedirectToAction("Error404","Error");
             }
         }
     }

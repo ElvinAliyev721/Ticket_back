@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Error404";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <!-- error page start -->
+    <div class="error-area">
+        <div class="container">
+            <div class="error-area-inner">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-8 col-md-10 text-center">
+                        <h2>Ooups, səhifə tapılmadı</h2>
+                        <p>Narahatçılığa görə çox üzr istəyirik. Deyəsən, silinmiş və ya heç vaxt mövcud olmayan səhifəyə daxil olmağa çalışırsınız.</p>
+                        <div class="btn-wrap">
+                            <a class="btn btn-red" href="/Home/Index">ANA SƏHİFƏYƏ QAYIT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="error-copyright text-center">
+                <p class="copyright">© @DateTime.Now.Year BillAir Travel Agency / All rights reserved</p>
+            </div>
+        </div>
+    </div>
+    <!-- error page end --> 
+

@@ -46,38 +46,24 @@
                     </button>
                 </div>
                 <div class="logo">
-                    <a class="main-logo" href="index.html"><img src="~/MainPageTemplate/assets/img/logo_.png" alt="img" style="width:150px;"></a>
-                    <a class="sticky-logo" href="index.html"><img src="~/MainPageTemplate/assets/img/logo_.png" alt="img" style="width:150px;"></a>
+                    <a class="main-logo" href="/Home/Index"><img src="~/MainPageTemplate/assets/img/logo_.png" alt="img" style="width:150px;"></a>
+                    <a class="sticky-logo" href="/Home/Index"><img src="~/MainPageTemplate/assets/img/logo_2.png" alt="img" style="width:150px;"></a>
                 </div>
                 <div class="nav-right-part nav-right-part-mobile">
-                    <a class="btn btn-red" href="login.html">Login</a>
+                    <a class="btn btn-red" asp-controller="Account" asp-action="Login">Login</a>
                 </div>
                 <div class="collapse navbar-collapse" id="eventa7_main_menu">
                     <ul class="navbar-nav menu-open">
-                        <li class="menu-item-has-children current-menu-item">
-                            <a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                                <li><a href="index-4.html">Home 04</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Ticket/Tickets">Tickets</a></li>
                         <li class="menu-item-has-children current-menu-item">
                             <a href="#">Pages</a>
                             <ul class="sub-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="speaker.html">Speaker</a></li>
-                                <li><a href="speaker-details.html">Speaker Details</a></li>
-                                <li><a href="partner.html">Partner</a></li>
-                                <li><a href="schedule.html">Schedule</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="become-sponsor.html">Become Sponsor</a></li>
-                                <li><a href="404.html">404</a></li>
+                                <li><a href="/Blog/Blogs">Blogs</a></li>
+                                <li><a href="/Ticket/Tickets">Tickets</a></li>
                             </ul>
                         </li>
-                        <li><a href="/Blog/Blogs">Blogs</a></li>
+                        <li><a href="/About/Index">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -105,7 +91,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="widget widget_about">
                             <div class="thumb">
-                                <img src="~/MainPageTemplate/assets/img/logo_.png" style="width:200px;" alt="img">
+                                <img src="~/MainPageTemplate/assets/img/logo_2.png" style="width:200px;" alt="img">
                             </div>
                             <div class="details">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -147,7 +133,7 @@
         </div>
         <div class="footer-bottom text-center">
             <div class="container">
-                <p>© @DateTime.Now.ToString("dd-MM-yyyyy") / All rights reserved</p>
+                <p>© @DateTime.Now.Year / All rights reserved</p>
             </div>
         </div>
     </footer>

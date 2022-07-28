@@ -465,3 +465,5 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Login.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\Tickets.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\TicketDetails.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Error\Error404.cshtml.g.cs

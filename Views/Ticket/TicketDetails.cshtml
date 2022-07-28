@@ -1,0 +1,153 @@
+﻿@model Warrant
+
+@{
+    ViewData["Title"] = "TicketDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+    <!-- Speaker-details-area Start -->
+    <div class="speaker-details-area pd-bottom-120" style="margin-top:150px;">
+        <div class="container">
+            <div class="speaker-details-inner">
+                <div class="row">
+                    @if(Model!=null)
+                    {
+                    <div class="col-lg-3 col-md-6 col-sm-7">
+                        <div class="thumb">
+                            <img src="~/MainPageTemplate/assets/img/other/ticket_img.png" alt="img">
+                        </div>
+                        <a class="speaker-link text-center" href="#"><i class="la la-link"></i>billair-travel.com</a>
+                        <ul class="social text-md-center">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-9 col-md-6 align-self-center">
+                        <div class="details-wrap mt-md-0 mt-4">
+                            <h2>@Model.Name</h2>
+                            <h3 class="designation" style="font-size:1.3rem; color:dimgray">@Model.Category.Name</h3>
+                            <p class="m-0"><span style="color:red;"><i class='bx bxs-calendar-plus' ></i> @Model.CreateDate</span> - <span style="color:forestgreen"><i class='bx bxs-calendar-x'></i> @Model.ExpireDate</span></p>
+                            <h6>Bilet haqqında</h6>
+                            <p>@Model.Description</p>
+                            <h6>Məxfilik və Hüquqlar</h6>
+                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis mattis aliquam faucibus purus in massa tempor nec. Urna id volutpat lacus laoreet non. Tincidunt nunc pulvinar sapien et. Sed viverra tellus in hac habitasse. Auctor augue mauris augue neque gravida in. Amet luctus venenatis lectus magna fringilla. Adipiscing enim eu turpis egestas. Amet luctus venenatis lectus magna fringilla. Velit ut tortor pretium viverra suspendisse. Id cursus metus aliquam eleifend mi in. Et ultrices neque ornare aenean euismod elementum nisi. Quis auctor elit sed vulputate mi sit. Nulla porttitor massa id neque aliquam vestibulum morbi. Mattis molestie a iaculis at erat pellentesque.
+                            Eu tincidunt tortor aliquam nulla. Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Placerat vestibulum lectus mauris ultrices eros. Dictumst quisque sagittis purus sit amet. Euismod lacinia at quis risus sed. Gravida neque convallis a cras semper auctor neque vitae tempus. Diam sollicitudin tempor id eu nisl. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Mattis aliquam faucibus purus in massa. Sit amet cursus sit amet dictum sit amet justo donec. Ornare suspendisse sed nisi lacus sed viverra. Tincidunt arcu non sodales neque. Neque vitae tempus quam pellentesque nec nam. Feugiat sed lectus vestibulum mattis ullamcorper. Enim praesent elementum facilisis leo vel fringilla est ullamcorper. Quam vulputate dignissim suspendisse in est ante. Euismod in pellentesque massa placerat duis ultricies lacus sed. Placerat orci nulla pellentesque dignissim enim.</p>
+                        </div>
+                    </div>
+                    }
+                    else
+                    {
+                    <div class="col-lg-9 col-md-6 align-self-center">
+                        <div class="details-wrap mt-md-0 mt-4">
+                            <h5>Belə bir məlumat yoxdur :(</h5>
+                        </div>
+                    </div>
+                    }
+            </div>
+            </div>  
+            <div class="row">
+                <div class="col-lg-9 offset-lg-3">
+                    <div class="evt-tab-inner style-two text-center pd-top-110">
+                        <ul class="nav nav-tabs" id="ex1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="ex1-tab-1" data-toggle="pill" href="#ex1-tabs-1" role="tab" aria-selected="true"><span>Day 1</span>23 Jun 2020</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="ex1-tab-2" data-toggle="pill" href="#ex1-tabs-2" role="tab" aria-selected="false"><span>Day 2</span>23 Jun 2020</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="ex1-content">
+                        <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="single-schedules-inner">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            5:00pm -6:30pm
+                                        </div>
+                                        <h5>Improving the quality of the management.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="assets/img/speaker/1.png" alt="img">
+                                            </div>
+                                            <div class="media-body align-self-center">
+                                                <h6>Dr. Ariful Islam Abid</h6>
+                                                <p>Ceo of AIA software agency, USA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="single-schedules-inner">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            5:00pm -6:30pm
+                                        </div>
+                                        <h5>Improving the quality of the management.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="assets/img/speaker/2.png" alt="img">
+                                            </div>
+                                            <div class="media-body align-self-center">
+                                                <h6>Dr. Ariful Islam Abid</h6>
+                                                <p>Ceo of AIA software agency, USA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="single-schedules-inner">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            5:00pm -6:30pm
+                                        </div>
+                                        <h5>Improving the quality of the management.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="assets/img/speaker/1.png" alt="img">
+                                            </div>
+                                            <div class="media-body align-self-center">
+                                                <h6>Dr. Ariful Islam Abid</h6>
+                                                <p>Ceo of AIA software agency, USA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="single-schedules-inner">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            5:00pm -6:30pm
+                                        </div>
+                                        <h5>Improving the quality of the management.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="assets/img/speaker/2.png" alt="img">
+                                            </div>
+                                            <div class="media-body align-self-center">
+                                                <h6>Dr. Ariful Islam Abid</h6>
+                                                <p>Ceo of AIA software agency, USA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                 
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <!-- Speaker area End -->
