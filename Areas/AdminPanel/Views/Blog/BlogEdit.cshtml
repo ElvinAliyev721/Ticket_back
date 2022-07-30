@@ -1,0 +1,48 @@
+﻿@model BlogsVMA
+
+@{
+    ViewData["Title"] = "BlogEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container p-4">
+    <div class="bg-light white-card">
+        <div>
+            <div class="text-center p-3">
+                <h1>#@Model.Id Bloqu Düzənlə</h1>
+            </div>
+            <div class="pt-4">
+                <form method="post">
+                    <input type="hidden" asp-for="Id" required />
+                    <input type="hidden" asp-for="Date" required />
+                    <input type="hidden" asp-for="Status" required />
+                    <input type="hidden" asp-for="Views" required />
+                    <div class="profile-img-input">
+                        <input type="file" class="form-control" id="pp-img" asp-for="Image">
+                    </div>
+                    <div class="text-center mt-5">
+                        <div class="profile d-flex justify-content-center align-items-center m-auto">
+                            <img class="profile-img" src="~/WriterImageFiles/@Model.Image" />
+                            <label for="pp-img" class="camera-icon"><i class='bx bxs-camera'></i></label>
+                        </div>
+                        <span class="text-danger font-weight-bold ml-2" asp-validation-for="Image"></span>
+                    </div>
+                    <div class="p-3">
+                        <label for="c-name">Bloq başlığı</label>
+                        <span class="text-danger font-weight-bold ml-2" asp-validation-for="Title"></span>
+                        <input id="c-name" class="form-control" type="text" asp-for="Title" placeholder="Bloq başlığı..." required />
+                    </div>
+                    <div class="p-3">
+                        <label for="c-description">Bloqun məzmunu</label>
+                        <span class="text-danger font-weight-bold ml-2" asp-validation-for="Content"></span>
+                        <textarea id="c-description" class="form-control" rows="20" asp-for="Content" placeholder="Bloqun məzmunu..." required></textarea>
+                    </div>
+                    <div class="text-center p-3">
+                        <button type="button" onclick="window.location.href='/AdminPanel/Blog/Index'" class="custom-admin-cancel">Ləğv et</button>
+                        <button type="submit" class="custom-admin-button">Tətbiq et</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

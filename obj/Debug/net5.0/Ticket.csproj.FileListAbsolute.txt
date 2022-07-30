@@ -467,3 +467,8 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Contact\Index.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\Tickets.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\TicketDetails.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Views\Error\Error404.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_ViewImports.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_ViewStart.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogEdit.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogAdd.cshtml.g.cs
