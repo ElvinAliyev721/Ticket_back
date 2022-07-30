@@ -1,0 +1,49 @@
+﻿@model UserVM
+@{
+    ViewData["Title"] = "ChangeRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Rolu dəyiş</h2>
+                    </div>
+                </div>
+                <div class="row tm-edit-product-row">
+                    <div class="col-md-12">
+                        <form class="tm-edit-product-form" method="post">
+                            <div class="form-check mb-3 d-flex flex-column">
+                                @foreach (string role in Model.Roles)
+                                {
+                                    if (role == Model.Role)
+                                    {
+                                       
+                                        <label class="form-check-label mr-4">
+                                            @role
+                                             <input class="form-check-input" type="radio" name="Role" checked value="@role">
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        
+                                        <label class="form-check-label mr-4">
+                                            @role
+                                            <input class="form-check-input" type="radio" name="Role" value="@role">
+                                        </label>
+                                    }
+                                }
+
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <button class="btn btn-light" asp-action="Index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
+using Ticket.DAL;
 using Ticket.Models;
 using Ticket.ViewModels;
 
@@ -11,11 +14,18 @@ namespace Ticket.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        private readonly AppDbContext _context;
+        public AccountController(
+            UserManager<AppUser> userManager, 
+            SignInManager<AppUser> signInManager, 
+            RoleManager<IdentityRole> roleManager,
+            AppDbContext context
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
         }
         public IActionResult Login()
         {
@@ -50,8 +60,9 @@ namespace Ticket.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            await CreateRole();
             return View();
         }
         [HttpPost]
@@ -68,7 +79,15 @@ namespace Ticket.Controllers
                 Email = registerVM.Email,
                 UserName = registerVM.UserName
             };
-
+            string roleforregister;
+            if (_context.Users.ToList().Count == 0)
+            {
+                roleforregister = "Admin";
+            }
+            else
+            {
+                roleforregister = "Member";
+            }
             IdentityResult identityResult = await _userManager.CreateAsync(user, registerVM.Password);
 
             if (!identityResult.Succeeded)
@@ -80,7 +99,8 @@ namespace Ticket.Controllers
                 return View(registerVM);
             }
             await _signInManager.SignInAsync(user, false);
-            await _userManager.AddToRoleAsync(user, "Member");
+            
+            await _userManager.AddToRoleAsync(user, roleforregister);
             return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> LogOut()
@@ -89,16 +109,16 @@ namespace Ticket.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //public async Task CreateRole()
-        //{
-        //    if (!await _roleManager.RoleExistsAsync("Admin"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("Member"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-        //    }
-        //}
+        public async Task CreateRole()
+        {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            }
+            if (!await _roleManager.RoleExistsAsync("Member"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+            }
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Ticket.Models
     {
         [Required,MaxLength(200)]
         public string FullName { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

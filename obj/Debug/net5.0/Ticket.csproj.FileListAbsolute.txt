@@ -472,3 +472,16 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_View
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_ViewStart.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogEdit.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogAdd.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogAdd.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\BlogEdit.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Blog\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_ViewImports.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\_ViewStart.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Error\Error404.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\TicketDetails.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Views\Ticket\Tickets.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeStatus.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeRole.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangePassword.cshtml.g.cs

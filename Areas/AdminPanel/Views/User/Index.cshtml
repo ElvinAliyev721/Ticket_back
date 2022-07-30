@@ -1,0 +1,79 @@
+﻿@model IPagedList<UserVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pt-3">
+    <div class="table-bg">
+        <div class="card-header-custom">
+            <h3>İstidəçilər</h3>
+            
+        </div>
+        <div class="card-body mt-2">
+            <div class="table-responsive">
+                <table class="table-custom" style="width: 100%;">
+                    <thead class="thead-custom">
+                        <tr>
+                            <td>Istifadəçi adı</td>
+                            <td>Email</td>
+                            <td>Role</td>
+                            <td>Status</td>
+                            
+                            <td>Əməliyyatlar</td>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-custom">
+                        @foreach(UserVM item in Model)
+                        {
+                            <tr>
+                                <td><i class='bx bxs-user'></i> @item.FullName</td>
+                                <td><i class='bx bxs-user'></i> @item.Email</td>
+                                <td class="my-table-data">@item.Role</td>
+                                @if (item.IsDeleted)
+                                {
+                                    <td class="tm-product-name text-danger">De Active</td>
+                                }
+                                else
+                                {
+                                  <td class="tm-product-name text-success">Active</td>
+                                }
+
+
+                                <td class="text-center justify-content-evenly">
+                                @if (item.IsDeleted)
+                                {
+                                   <a asp-action="ChangeStatus" asp-route-id="@item.Id" class="btn btn-success">Activate</a>
+                                }
+                                else
+                                {
+                                   <a asp-action="ChangeStatus" asp-route-id="@item.Id" class="btn btn-danger">De Activate</a>
+                                }
+                                        <a asp-action="ChangeRole" asp-route-id="@item.Id" class="btn btn-warning">Change Role</a>
+                                        <a asp-action="ChangePassword" asp-route-id="@item.Id" class="btn btn-dark">Change Password</a>
+                                </td>
+
+                                @*<td class="d-flex justify-content-between">
+                                    <button class="btn btn-dark" onclick="BlogDetails(@item.Id)"><i class='bx bxs-detail'></i></button>
+                                    <a class="btn btn-dark" href="/AdminPanel/Blog/BlogEdit/@item.Id"><i class='bx bxs-edit' ></i></a>
+                                    <button type="button" onclick="delBlog(@item.Id)" class="btn btn-dark"><i class='bx bxs-trash' ></i></button>
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "User", new { page }), new PagedListRenderOptions
+{
+    PageClasses = new string[] { "page-link bg-dark text-light border-dark" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    ContainerDivClasses = new string[] { "p-1 pt-3" },
+    ActiveLiElementClass = "active-page"
+})
