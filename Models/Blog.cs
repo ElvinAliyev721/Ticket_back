@@ -11,6 +11,7 @@ namespace Ticket.Models
         public string Content { get; set; }
         public byte[] Image { get; set; }
         public int Views { get; set; }
+        public bool Status { get; set; }
         public DateTime Date { get; set; }
     }
 }

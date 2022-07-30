@@ -398,18 +398,22 @@ td {
 }
 
 .custom-admin-button {
-    background-color: #11101D;
-    color: #fff;
+    background-color: #11101D !important;
+    color: #fff !important;
     border-radius: 8px;
     padding: 12px;
-    transition: all .5s ease-in;
-    outline:none;
-    border:none;
+    transition: all .5s ease-in !important;
+    outline: none;
+    border: none;
+}
+
+.custom-admin-button i{
+    font-size:16px;
 }
 
 .custom-admin-button:hover {
-    color: #11101D;
-    background-color: #fff;
+    color: #11101D !important;
+    background-color: #fff !important;
 }
 
 .custom-admin-button:focus, .custom-admin-cancel:focus{

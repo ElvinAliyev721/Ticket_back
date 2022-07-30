@@ -1,11 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Areas",
+    "\\Areas\\AdminPanel",
+    "\\Areas\\AdminPanel\\Views",
+    "\\Areas\\AdminPanel\\Views\\Blog",
     "\\Controllers",
     "\\Views",
     "\\Views\\Blog",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Ticket.sln",
+  "SelectedNode": "\\Areas\\AdminPanel\\Views\\Blog\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
