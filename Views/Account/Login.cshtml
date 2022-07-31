@@ -22,14 +22,14 @@
                         </label>
                         <label asp-for="Password" class="single-input-inner">
                             <span>Password</span>
-                            <input asp-for="Password" type="text" placeholder="Password">
+                            <input asp-for="Password" type="password" placeholder="Password">
                             @*<i class="la la-check"></i>*@
                             <span class="text-danger" asp-validation-for="Password"></span>
                         </label>
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="single-checkbox-inner">
-                                    <a asp-action="Register">Create</a>
+                                    <a class="btn btn-light" asp-action="Register">Create</a>
                                 </label>
                             </div>
                             <div class="col-md-6 text-md-right">

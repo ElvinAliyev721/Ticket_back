@@ -140,6 +140,11 @@ namespace Ticket.Areas.AdminPanel.Controllers
             {
                 return NotFound();
             }
+            if (NewPassword == null || NewPassword.Length!=8)
+            {
+                ModelState.AddModelError("", "dogru daxil edin");
+                return View(user);
+            }
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
             await _userManager.ResetPasswordAsync(user, token, NewPassword);
             return RedirectToAction(nameof(Index));

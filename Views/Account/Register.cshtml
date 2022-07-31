@@ -42,7 +42,7 @@
                             <div class="col-12">
                                 <label asp-for="Password" class="single-input-inner">
                                     <span>Password</span>
-                                    <input asp-for="Password" type="text" placeholder="Password">
+                                    <input asp-for="Password" type="password" placeholder="Password">
                                     <i class="la la-check"></i>
                                 </label>
                                 <span class="text-danger" asp-validation-for="Password"></span>
@@ -50,14 +50,14 @@
                             <div class="col-12">
                                 <label asp-for="ConfirmPassword" class="single-input-inner">
                                     <span>Re-type Password</span>
-                                    <input asp-for="ConfirmPassword" type="text" placeholder="Re-type Password">
+                                    <input asp-for="ConfirmPassword" type="password" placeholder="Re-type Password">
                                     <i class="la la-check"></i>
                                 </label>
                                 <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
                             </div>
                             <div class="col-12 d-flex justify-content-between">
                                 <span>Already have account? </span>
-                                <a asp-action="Login">Login</a>
+                                <a class="btn btn-light" asp-action="Login">Login</a>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-red w-100 mt-3">Register Now</button>
