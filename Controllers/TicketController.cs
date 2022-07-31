@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Ticket.DAL;
 using Ticket.Models;
@@ -27,7 +28,7 @@ namespace Ticket.Controllers
             List<WarrantsVM> warrants = new List<WarrantsVM>();
             try
             {
-                foreach (Warrant item in await _context.Warrants.Include(x=>x.Category).ToListAsync())
+                foreach (Warrant item in await _context.Warrants.Where(x=>x.IsDeleted==false).Include(x=>x.Category).ToListAsync())
                 {
                     WarrantsVM warrant = new WarrantsVM
                     {

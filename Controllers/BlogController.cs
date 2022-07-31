@@ -11,6 +11,7 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using X.PagedList;
+using Ticket.Utils;
 
 namespace Ticket.Controllers
 {
@@ -30,7 +31,7 @@ namespace Ticket.Controllers
             List<BlogsVM> blogs = new List<BlogsVM>();
             try
             {
-                foreach (Blog item in await _context.Blogs.ToListAsync())
+                foreach (Blog item in await _context.Blogs.Where(x=>x.Status==true).ToListAsync())
                 {
                     BlogsVM blog = new BlogsVM
                     {
@@ -38,7 +39,7 @@ namespace Ticket.Controllers
                         Title = item.Title,
                         Content = item.Content.Length > 100 ? item.Content.Substring(0, 99) : item.Content,
                         Date = item.Date,
-                        //Image = 
+                        Image = Helper.GetImage(Convert.ToBase64String(item.Image)),
                         Views = item.Views
                     };
                     blogs.Add(blog);
@@ -57,6 +58,7 @@ namespace Ticket.Controllers
             try
             {
                 Blog blog = await _context.Blogs.FindAsync(id);
+                blog.Image = Helper.GetImage(Convert.ToBase64String(blog.Image));
                 return View(blog);
             }
             catch (Exception)
@@ -65,37 +67,5 @@ namespace Ticket.Controllers
             }
         }
 
-        //public void SaveFile(FileUpload fileObj)
-        //{
-        //    Blog blog = JsonConvert.DeserializeObject<Blog>(fileObj.Obj);
-        //    if(fileObj.File.Length > 0)
-        //    {
-        //        using(var ms = new MemoryStream())
-        //        {
-        //            fileObj.File.CopyTo(ms);
-        //            var fileBytes = ms.ToArray();
-        //            blog.Image = fileBytes;
-        //        }
-        //    }
-        //    _context.Blogs.Add(blog);
-        //    _context.SaveChanges();
-        //}
-
-        //public JsonResult GetSavedBlog()
-        //{
-        //    var blog = _context.Blogs.FirstOrDefault();
-        //    blog.Image = this.GetImage(Convert.ToBase64String(blog.Image));
-        //    return Json(blog);
-        //}
-
-        //public byte[] GetImage(string sBase64String)
-        //{
-        //    byte[] bytes = null;
-        //    if(!string.IsNullOrEmpty(sBase64String))
-        //    {
-        //        bytes = Convert.FromBase64String(sBase64String);
-        //    }
-        //    return bytes;
-        //}
     }
 }

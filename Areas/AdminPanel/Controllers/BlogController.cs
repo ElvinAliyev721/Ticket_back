@@ -4,10 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Ticket.Areas.AdminPanel.ViewModels;
 using Ticket.DAL;
 using Ticket.Models;
+using Ticket.Utils;
 using Ticket.ViewModels;
 using X.PagedList;
 
@@ -38,7 +40,6 @@ namespace Ticket.Areas.AdminPanel.Controllers
                         Content = item.Content.Length > 100 ? item.Content.Substring(0, 99) : item.Content,
                         Date = item.Date,
                         Status = item.Status,
-                        //Image = 
                         Views = item.Views
                     };
                     blogs.Add(blog);
@@ -64,7 +65,8 @@ namespace Ticket.Areas.AdminPanel.Controllers
                     Status = blog.Status,
                     Date = blog.Date,
                     Title = blog.Title,
-                    Views = blog.Views
+                    Views = blog.Views,
+                    Image = Helper.GetImage(Convert.ToBase64String(blog.Image))
                 };
                 return View(blogInfo);
             }
@@ -84,23 +86,30 @@ namespace Ticket.Areas.AdminPanel.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BlogEdit(BlogsVMA blogNew)
+        public async Task<IActionResult> BlogEdit(FileUploadBlog fileObj)
         {
+            BlogEditFileVM oBlog = JsonConvert.DeserializeObject<BlogEditFileVM>(fileObj.Blog);
             try
             {
-                Blog blog = await _context.Blogs.FindAsync(blogNew.Id);
-                blog.Content = blogNew.Content;
-                blog.Status = blogNew.Status;
-                blog.Date = blogNew.Date;
-                blog.Title = blogNew.Title;
-                blog.Views = blogNew.Views;
+                Blog blog = await _context.Blogs.FindAsync(oBlog.id);
+                blog.Content = oBlog.content;
+                blog.Title = oBlog.title;
+                if (fileObj.File.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        fileObj.File.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+                        blog.Image = fileBytes;
+                    }
+                }
                 _context.Blogs.Update(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return RedirectToAction("BlogEdit",blogNew.Id);
+                return RedirectToAction("BlogEdit",oBlog.id);
             }
         }
 
@@ -111,26 +120,41 @@ namespace Ticket.Areas.AdminPanel.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BlogAdd(BlogsVMA blogNew)
+        public async Task<IActionResult> BlogAdd(FileUploadBlog fileObj)
         {
+            BlogFileVM oBlog = JsonConvert.DeserializeObject<BlogFileVM>(fileObj.Blog);
             try
             {
-                Blog blog = new Blog
+                if(fileObj.File.Length > 0)
                 {
-                    Content = blogNew.Content,
-                    Status = true,
-                    Date = DateTime.Now,
-                    Title = blogNew.Title,
-                    Views = 0,
-                    //Image = 
-                };
-                await _context.Blogs.AddAsync(blog);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    using(var ms = new  MemoryStream())
+                    {
+                        fileObj.File.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+                        Blog blog = new Blog
+                        {
+                            Title = oBlog.title,
+                            Content = oBlog.content,
+                            Image = fileBytes,
+                            Status = true,
+                            Views = 0,
+                            Date = DateTime.Now
+                        };
+                        await _context.Blogs.AddAsync(blog);
+                        await _context.SaveChangesAsync();
+
+                        if(blog.Id > 0)
+                        {
+                            return RedirectToAction("Index");
+                        }
+                    }
+                }
+                TempData["ImageError"] = "Şəkil düzgün daxil edilməmişdir";
+                return RedirectToAction("BlogAdd", oBlog);
             }
             catch (Exception)
             {
-                return RedirectToAction("BlogAdd", blogNew);
+                return RedirectToAction("BlogAdd", oBlog);
             }
         }
 
@@ -167,5 +191,38 @@ namespace Ticket.Areas.AdminPanel.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<JsonResult> DeleteBlog(int id)
+        {
+            try
+            {
+                Blog blog = await _context.Blogs.FindAsync(id);
+                blog.Status = false;
+                _context.Blogs.Update(blog);
+                _context.SaveChanges();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ActivateBlog(int id)
+        {
+            try
+            {
+                Blog blog = await _context.Blogs.FindAsync(id);
+                blog.Status = true;
+                _context.Blogs.Update(blog);
+                _context.SaveChanges();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
     }
 }
