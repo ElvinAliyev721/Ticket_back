@@ -485,3 +485,7 @@ C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\Index.c
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeStatus.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeRole.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangePassword.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangePassword.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeRole.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeStatus.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs

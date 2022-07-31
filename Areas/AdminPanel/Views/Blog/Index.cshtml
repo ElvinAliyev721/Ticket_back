@@ -71,7 +71,7 @@
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger mr-3'
+                    cancelButton: 'btn btn-danger me-3'
                 },
                 buttonsStyling: false
             })
@@ -171,7 +171,7 @@
                     success: function (myvalue) {
                         let data = jQuery.parseJSON(myvalue);
                         Swal.fire({
-                            title: `<div class="text-center">Bloqun detalları</div>`, /*<div class="text-center"><img class="detail-img" src="/WriterImageFiles/${data}" /></div><hr /><span>Details of </span><strong class="text-info">${data.UserName}</strong>*/
+                            title: `<div class="text-center">Bloqun detalları</div>`,
                             html:
                                 `<h4 class="text-info"><b>#${data.Id} - ${data.Title}</b></h4>
                                     <h6><span>${data.Content.substring(0,150)}</span></h6>

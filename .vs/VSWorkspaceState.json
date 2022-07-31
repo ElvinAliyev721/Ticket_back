@@ -3,6 +3,7 @@
     "",
     "\\Areas",
     "\\Areas\\AdminPanel",
+    "\\Areas\\AdminPanel\\Controllers",
     "\\Areas\\AdminPanel\\Views",
     "\\Areas\\AdminPanel\\Views\\Blog",
     "\\Controllers",
@@ -10,6 +11,6 @@
     "\\Views\\Blog",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Areas\\AdminPanel\\Views\\Blog\\Index.cshtml",
+  "SelectedNode": "\\Areas\\AdminPanel\\Views\\Blog\\BlogEdit.cshtml",
   "PreviewInSolutionExplorer": false
 }
