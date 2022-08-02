@@ -1,0 +1,64 @@
+﻿@model WarrantAddVM
+
+@{
+    ViewData["Title"] = "WarrantAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container p-4">
+    <div class="bg-light white-card">
+        <div>
+            <div class="text-center p-3">
+                <h1>Yeni Bilet yarat</h1>
+            </div>
+            <div class="pt-4">
+                <form method="post">
+                    <div class="p-3">
+                        <label for="tb-title">Bilet adı</label>
+                        <input id="tb-title" asp-for="Name" class="form-control" type="text" placeholder="Bilet adı..." required />
+                    </div>
+                    <div class="p-3">
+                        <label for="tb-price">Qiymət</label>
+                        <input id="tb-price" asp-for="Price" step="0.01" class="form-control" type="number" placeholder="00.000 AZN" required />
+                    </div>
+                    <div class="p-3">
+                        <label class="d-block" for="tb-cr-date">Başlanğıc tarixi</label>
+                        <input id="tb-cr-date" asp-for="CreateDate" class="form-control input-custom-date" type="datetime-local" required />
+                        <button class="btn btn-dark btn-now" onclick="timestampToDatetimeInputString('tb-cr-date')" >Indi</button>
+                    </div>
+                    <div class="p-3 w-100">
+                        <label class="d-block" for="tb-exp-date">Bitiş tarixi</label>
+                        <input id="tb-exp-date" asp-for="ExpireDate" class="form-control input-custom-date" type="datetime-local" required />
+                        <button class="btn btn-dark btn-now" onclick="timestampToDatetimeInputString('tb-exp-date')" >Indi</button>
+                    </div>
+                    <div class="p-3">
+                        <label for="selection" class="m-auto">Kateqoriya</label>
+                        <select id="selection" class="form-group form-control col-md-12 mt-2" asp-for="CategoryId">
+                            @foreach (var item in ViewBag.CategoryList)
+                            {
+                                <option class="form-control" value="@item.CategoryId">@item.CategoryName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="p-3">
+                        <label for="tb-content">Biletin açıqlaması</label>
+                        <textarea id="tb-content" asp-for="Description" class="form-control" rows="10" placeholder="Biletin açıqlaması..." required></textarea>
+                    </div>
+                    <div class="text-center p-3">
+                        <button type="button" onclick="window.location.href='/AdminPanel/Warrant/Index'" class="custom-admin-cancel">Ləğv et</button>
+                        <button type="submit" id="btn-save" class="custom-admin-button">Yarat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        function timestampToDatetimeInputString(id1)
+        {
+            var now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            document.getElementById(id1).value = now.toISOString().slice(0, 16);
+        }
+</script>

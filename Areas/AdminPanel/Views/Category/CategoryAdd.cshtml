@@ -1,0 +1,32 @@
+﻿@model CategoryAddVM
+
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container p-4">
+    <div class="bg-light white-card">
+        <div>
+            <div class="text-center p-3">
+                <h1>Yeni Kateqoriya yarat</h1>
+            </div>
+            <div class="pt-4">
+                <form method="post">
+                    <div class="p-3">
+                        <label for="tb-title">Kateqoriya adı</label>
+                        <input id="tb-title" asp-for="Name" class="form-control" type="text" placeholder="Kateqoriya adı..." required />
+                    </div>
+                    <div class="p-3">
+                        <label for="tb-content">Kateqoriyanın açıqlaması</label>
+                        <textarea id="tb-content" asp-for="Description" class="form-control" rows="20" placeholder="Kateqoriyanın açıqlaması..." required></textarea>
+                    </div>
+                    <div class="text-center p-3">
+                        <button type="button" onclick="window.location.href='/AdminPanel/Category/Index'" class="custom-admin-cancel">Ləğv et</button>
+                        <button type="submit" id="btn-save" class="custom-admin-button">Yarat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,22 +22,23 @@ namespace Ticket.Controllers
             About db_about = await _context.Abouts.FirstOrDefaultAsync();
             AboutVM aboutvm = new AboutVM();
             List<string> aboutSentences;
-            if (db_about.Description != null)
-            {
-                string[] sentences = Regex.Split(db_about.Description, @"(?<=[\.!\?])");
-                aboutSentences = sentences.ToList();
-                for (int i = 0; i < aboutSentences.Count; i++)
+            if(db_about!=null)
+                if (db_about.Description != null)
                 {
-                    if (i < 5)
-                        aboutvm.Description_1 += aboutSentences[i];
-                    else if (i > 5 && i < 10)
-                        aboutvm.Description_2 += aboutSentences[i];
-                    else if (i > 10 && i < 15)
-                        aboutvm.Description_3 += aboutSentences[i];
-                    else
-                        aboutvm.Description_4 += aboutSentences[i];
+                    string[] sentences = Regex.Split(db_about.Description, @"(?<=[\.!\?])");
+                    aboutSentences = sentences.ToList();
+                    for (int i = 0; i < aboutSentences.Count; i++)
+                    {
+                        if (i < 5)
+                            aboutvm.Description_1 += aboutSentences[i];
+                        else if (i > 5 && i < 10)
+                            aboutvm.Description_2 += aboutSentences[i];
+                        else if (i > 10 && i < 15)
+                            aboutvm.Description_3 += aboutSentences[i];
+                        else
+                            aboutvm.Description_4 += aboutSentences[i];
+                    }
                 }
-            }
             return View(aboutvm);
         }
     }
