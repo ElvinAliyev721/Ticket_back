@@ -1,0 +1,195 @@
+﻿@model IPagedList<CategoryVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pt-3">
+    <div class="table-bg">
+        <div class="card-header-custom">
+            <h3>Kateqoriyalar</h3>
+            <a href="/AdminPanel/Category/CategoryAdd" class="btn custom-admin-button"><span>Yeni Kateqoriya</span> <i class='bx bxs-book-add'></i></a>
+        </div>
+        <div class="card-body mt-2">
+            <div class="table-responsive">
+                <table class="table-custom" style="width: 100%;">
+                    <thead class="thead-custom">
+                        <tr>
+                            <td>#</td>
+                            <td>Adı</td>
+                            <td>Status</td>
+                            <td>Əməliyyatlar</td>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-custom">
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td class="my-table-data">@item.Id</td>
+                                <td class="my-table-data">@item.Name</td>
+                                <td id="table-data-@item.Id">
+                                    @if (!item.IsDeleted)
+                                    {
+                                        <span class="status green"></span><span> Aktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status red"></span>
+                                        <a onclick="activateCategory(@item.Id)" class="btn btn-outline-success">Aktiv et</a>
+                                    }
+                                </td>
+                                <td class="d-flex justify-content-between">
+                                    <button class="btn btn-dark" onclick="CategoryDetails(@item.Id)"><i class='bx bxs-detail'></i></button>
+                                    <a class="btn btn-dark" href="/AdminPanel/Category/CategoryEdit/@item.Id"><i class='bx bxs-edit' ></i></a>
+                                    <button type="button" onclick="delCategory(@item.Id)" class="btn btn-dark"><i class='bx bxs-trash' ></i></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "Category", new { page }), new PagedListRenderOptions
+{
+    PageClasses = new string[] { "page-link bg-dark text-light border-dark" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    ContainerDivClasses = new string[] { "p-1 pt-3" },
+    ActiveLiElementClass = "active-page"
+})
+
+@section scripts {
+    <script>
+        function delCategory(cat_id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger me-3'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Əminsiniz?',
+                text: "İstədiyin vaxt bu Kateqoriyanı aktiv edə bilərsən!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Bəli, bunu sil!',
+                cancelButtonText: 'Xeyr, ləğv et!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'Silinir...!',
+                        html: 'Bunu <b></b> millisaniyələr ərzində siləcəm.',
+                        timer: 1000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/AdminPanel/Category/DeleteCategory/',
+                                data: { id: cat_id }
+                            });
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                                b.textContent = Swal.getTimerLeft()
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                    }).then((result) => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Silindi!',
+                            text: 'Bu kateqoriya uğurla silindi!'
+                        });
+                        document.getElementById("table-data-" + cat_id).innerHTML = `<span class="status red"></span>
+                                            <a onclick="activateCategory(${cat_id})" class="btn btn-outline-success">Aktiv et</a>`;
+                    });
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Ləğv edildi',
+                        'Kateqoriya qurtarıldı :)',
+                        'error'
+                    )
+                }
+            })
+        }
+
+        function activateCategory(cat_id) {
+            let timerInterval
+            Swal.fire({
+                title: 'Aktiv edilir...!',
+                html: 'Bunu <b></b> millisaniyələr ərzində aktiv edəcəm.',
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdminPanel/Category/ActivateCategory/',
+                        data: { id: cat_id }
+                    });
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Aktiv edildi!',
+                    text: 'Kateqoriya uğurla aktiv edildi!'
+                });
+                document.getElementById("table-data-" + cat_id).innerHTML = `<span class="status green"></span><span> Aktiv</span>`;
+            });
+        }
+
+        function CategoryDetails(cat_id) {
+            $(function () {
+                $.ajax({
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    type: 'GET',
+                    url: '/AdminPanel/Category/CategoryDetails/',
+                    data: { id: cat_id },
+                    success: function (myvalue) {
+                        let data = jQuery.parseJSON(myvalue);
+                        Swal.fire({
+                            title: `<div class="text-center">Kateqoriyanın detalları</div>`,
+                            html:
+                                `<h4 class="text-info"><b>#${data.Id} - ${data.Name}</b></h4>
+                                    <hr>
+                                    <h6><span>${data.Description}</span></h6>
+                                    <hr>
+                                    <h6 class="text-info"> Status : ${data.IsDeleted ?'DeAktiv':'Aktiv'}</h6>`,
+                            showCloseButton: true,
+                            showCancelButton: true,
+                            focusConfirm: false,
+                            confirmButtonText:
+                                `<a class="text-white nav-link p-0" href="/AdminPanel/Category/CategoryEdit/${cat_id}"><i class='bx bxs-edit'></i> Kateqoriyanı düzənlə</a>`,
+                            confirmButtonAriaLabel: 'Edit',
+                            cancelButtonText:
+                                '<span><i class="bx bxs-left-arrow-circle" ></i> Oldu</span>',
+                            cancelButtonAriaLabel: 'Okay'
+                        });
+                    }
+                })
+            });
+        }
+    </script>
+}
+

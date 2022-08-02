@@ -494,3 +494,15 @@ C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Create
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Delete.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Update.cshtml.g.cs
 C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Details.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Create.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Delete.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Details.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Update.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\CategoryAdd.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\CategoryEdit.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\Index.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantAdd.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantEdit.cshtml.g.cs
+C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Error\Index.cshtml.g.cs

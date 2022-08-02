@@ -11,6 +11,6 @@
     "\\Views\\Blog",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Areas\\AdminPanel\\Views\\Blog\\BlogEdit.cshtml",
+  "SelectedNode": "\\Views\\Shared\\_AdminLayout.cshtml",
   "PreviewInSolutionExplorer": false
 }

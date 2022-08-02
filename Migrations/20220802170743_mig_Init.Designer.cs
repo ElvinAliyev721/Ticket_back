@@ -10,8 +10,8 @@ using Ticket.DAL;
 namespace Ticket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220801094359_AddedAllforbeforeofLoginRegister")]
-    partial class AddedAllforbeforeofLoginRegister
+    [Migration("20220802170743_mig_Init")]
+    partial class mig_Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,8 +161,7 @@ namespace Ticket.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(210)
-                        .HasColumnType("nvarchar(210)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -436,7 +435,7 @@ namespace Ticket.Migrations
             modelBuilder.Entity("Ticket.Models.Warrant", b =>
                 {
                     b.HasOne("Ticket.Models.Category", "Category")
-                        .WithMany("ProductColors")
+                        .WithMany("Warrants")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -446,7 +445,7 @@ namespace Ticket.Migrations
 
             modelBuilder.Entity("Ticket.Models.Category", b =>
                 {
-                    b.Navigation("ProductColors");
+                    b.Navigation("Warrants");
                 });
 #pragma warning restore 612, 618
         }

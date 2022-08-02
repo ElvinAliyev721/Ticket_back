@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="icon" href="~/MainPageTemplate/assets/img/logo_icon.png">
     <title>BillAir - Travel Agency</title>
-
     <!-- Stylesheet -->
     <link rel="stylesheet" href="~/MainPageTemplate/assets/css/vendor.css">
     <link rel="stylesheet" href="~/MainPageTemplate/assets/css/style.css">
@@ -53,7 +52,7 @@
                     <a class="btn btn-red" asp-controller="Account" asp-action="Login">Login</a>
                 </div>
                 <div class="collapse navbar-collapse" id="eventa7_main_menu">
-                    <ul class="navbar-nav menu-open">
+                    <ul class="navbar-nav menu-open
                         <li><a href="/Home/Index">Home</a></li>
                         <li><a href="/Ticket/Tickets">Tickets</a></li>
                         <li class="menu-item-has-children current-menu-item">
@@ -65,13 +64,23 @@
                         </li>
                         <li><a href="/About/Index">About Us</a></li>
                         <li><a href="/Contact/Index">Contact</a></li>
+                        @if(User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a class="auth-user">
+                                    <div>
+                                        <span><i class='bx bx-user-circle' style="margin-right:5px;"></i></span>
+                                        <span>@User.Identity.Name</span>
+                                    </div>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="btn btn-red" asp-controller="Account" asp-action="LogOut">Log Out</a>
-                        <span>@User.Identity.Name</span>
                     }
                     else
                     {

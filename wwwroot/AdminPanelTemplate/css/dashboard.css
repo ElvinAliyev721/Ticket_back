@@ -497,3 +497,23 @@ td {
 .camera-icon:hover {
     opacity: 1;
 }
+
+.btn-now{
+    display:inline;
+    width:10% !important;
+}
+
+.input-custom-date {
+    display: inline !important;
+    width: 85% !important;
+}
+
+.auth-user {
+    margin-left: 10px;
+}
+
+.auth-user div{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}

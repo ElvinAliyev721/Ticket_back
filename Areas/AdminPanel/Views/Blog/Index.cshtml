@@ -174,7 +174,7 @@
                             title: `<div class="text-center">Bloqun detalları</div>`,
                             html:
                                 `<h4 class="text-info"><b>#${data.Id} - ${data.Title}</b></h4>
-                                    <h6><span>${data.Content.substring(0,150)}</span></h6>
+                                    <h6><span>${data.Content.length>150 ? data.Content.substring(0,150) : data.Content}</span></h6>
                                     <h6 class="text-info"> Status : ${data.Status?'Aktiv':'DeAktiv'}</h6>
                                     <h6 class="text-muted"> Tarix : ${data.Date.replace('T',' ')}</h6>
                                     <br />

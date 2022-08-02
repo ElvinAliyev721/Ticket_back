@@ -20,6 +20,6 @@ namespace Ticket.Models
         [Required]
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<Warrant> ProductColors { get; set; }
+        public virtual ICollection<Warrant> Warrants { get; set; }
     }
 }

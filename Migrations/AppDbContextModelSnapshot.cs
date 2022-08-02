@@ -433,7 +433,7 @@ namespace Ticket.Migrations
             modelBuilder.Entity("Ticket.Models.Warrant", b =>
                 {
                     b.HasOne("Ticket.Models.Category", "Category")
-                        .WithMany("ProductColors")
+                        .WithMany("Warrants")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -443,7 +443,7 @@ namespace Ticket.Migrations
 
             modelBuilder.Entity("Ticket.Models.Category", b =>
                 {
-                    b.Navigation("ProductColors");
+                    b.Navigation("Warrants");
                 });
 #pragma warning restore 612, 618
         }
