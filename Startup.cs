@@ -53,6 +53,7 @@ namespace Ticket
 
             app.UseAuthentication();
             app.UseRouting();
+            app.UseAuthorization();
             app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>

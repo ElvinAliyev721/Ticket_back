@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ticket.Migrations
 {
-    public partial class mig_Init : Migration
+    public partial class AddedAllforbeforeofLoginRegister : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

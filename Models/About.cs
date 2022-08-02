@@ -9,7 +9,7 @@ namespace Ticket.Models
         public int Id { get; set; }
         [Required,MinLength(25)]
         public string Title { get; set; }
-        [Required,MinLength(120),MaxLength(210)]
+        [Required,MinLength(120)]
         public string Description { get; set; }
         public string Image { get; set; }
         [NotMapped]

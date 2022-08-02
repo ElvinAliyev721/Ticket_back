@@ -10,8 +10,8 @@ using Ticket.DAL;
 namespace Ticket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220731104622_mig_Init")]
-    partial class mig_Init
+    [Migration("20220801094359_AddedAllforbeforeofLoginRegister")]
+    partial class AddedAllforbeforeofLoginRegister
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

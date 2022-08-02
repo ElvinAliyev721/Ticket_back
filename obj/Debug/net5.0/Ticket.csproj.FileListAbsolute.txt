@@ -489,3 +489,8 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeRole.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\ChangeStatus.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Create.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Delete.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Update.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\About\Details.cshtml.g.cs

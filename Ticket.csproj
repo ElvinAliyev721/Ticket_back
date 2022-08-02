@@ -20,6 +20,7 @@
     <Folder Include="Areas\AdminPanel\Data\" />
     <Folder Include="Areas\AdminPanel\Models\" />
     <Folder Include="wwwroot\Common\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

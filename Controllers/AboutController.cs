@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Ticket.DAL;
 using Ticket.Models;
@@ -18,36 +21,23 @@ namespace Ticket.Controllers
         {
             About db_about = await _context.Abouts.FirstOrDefaultAsync();
             AboutVM aboutvm = new AboutVM();
-            int checkLength; ;
-            if (db_about == null)
+            List<string> aboutSentences;
+            if (db_about.Description != null)
             {
-                aboutvm.Title = "Test";
-                aboutvm.Description_1 = "Desc_1";
-                aboutvm.Description_2 = "Desc_2";
-                aboutvm.Description_3 = "Desc_3";
-                aboutvm.Image = "assets/img/about/1.png";
-            }
-            else
-            {
-                checkLength = db_about.Description.Length;
-                int qaliq = 0;
-                if (checkLength % 3 != 0)
+                string[] sentences = Regex.Split(db_about.Description, @"(?<=[\.!\?])");
+                aboutSentences = sentences.ToList();
+                for (int i = 0; i < aboutSentences.Count; i++)
                 {
-                    qaliq += checkLength % 3;
+                    if (i < 5)
+                        aboutvm.Description_1 += aboutSentences[i];
+                    else if (i > 5 && i < 10)
+                        aboutvm.Description_2 += aboutSentences[i];
+                    else if (i > 10 && i < 15)
+                        aboutvm.Description_3 += aboutSentences[i];
+                    else
+                        aboutvm.Description_4 += aboutSentences[i];
                 }
-                checkLength += qaliq;
-
-
-
-                aboutvm.Title = db_about.Title;
-                aboutvm.Image = db_about.Image;
-                aboutvm.Description_1 = db_about.Description.Substring(0, checkLength / 3);
-                aboutvm.Description_2 = db_about.Description.Substring(checkLength / 3, checkLength * 2 / 3);
-                aboutvm.Description_3 = db_about.Description.Substring(checkLength * 2 / 3, checkLength - qaliq);
-                
             }
-            
-            
             return View(aboutvm);
         }
     }

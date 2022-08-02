@@ -159,8 +159,7 @@ namespace Ticket.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(210)
-                        .HasColumnType("nvarchar(210)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
