@@ -1,0 +1,45 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="row tm-content-row">
+    @if (Model.Count > 0)
+        {
+            <div class="col-12 tm-block-col">
+                <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                    <h2 class="tm-block-title">Messages List</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-uppercase text-center"> NO.</th>
+                                <th scope="col" class="text-uppercase text-center">Name</th>
+                                <th scope="col" class="text-uppercase text-center">Email</th>
+                                <th scope="col" class="text-uppercase text-center">Settings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Contact item in @Model)
+                            {
+                                <tr>
+                                    <th scope="row"><b>#@item.Id</b></th>
+                                    <td scope="row">@item.Name</td>
+                                    <td scope="row">@item.Email</td>
+                                    <td class="text-center">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Məlumat</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                                            @*<i class="far fa-trash-alt tm-product-delete-icon"></i>*@
+                                            Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+</div>
+</div>
+

@@ -506,3 +506,12 @@ C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantAdd.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantEdit.cshtml.g.cs
 C:\Users\vusal\Desktop\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Error\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\CategoryAdd.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\CategoryEdit.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Category\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Error\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantAdd.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Warrant\WarrantEdit.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Contact\Index.cshtml.g.cs
+C:\visual\Ticket_back\obj\Debug\net5.0\Razor\Areas\AdminPanel\Views\Contact\Details.cshtml.g.cs
