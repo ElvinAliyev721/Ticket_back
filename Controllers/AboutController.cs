@@ -27,29 +27,23 @@ namespace Ticket.Controllers
             {
                 if (db_about.Description != null)
                 {
-                    //string[] sentences = Regex.Split(db_about.Description, @"(?<=[\.!\?])");
-                    //aboutSentences = sentences.ToList();
-                    //for (int i = 0; i < aboutSentences.Count; i++)
-                    //{
-                    //    if (i < 5)
-                    //        aboutvm.Description_1 += aboutSentences[i];
-                    //    else if (i > 5 && i < 10)
-                    //        aboutvm.Description_2 += aboutSentences[i];
-                    //    else if (i > 10 && i < 15)
-                    //        aboutvm.Description_3 += aboutSentences[i];
-                    //    else
-                    //        aboutvm.Description_4 += aboutSentences[i];
-                    //}
-
-                    IEnumerable<string> descs = CustomSplit(db_about.Description, db_about.Description.Length / 4);
-                    aboutvm.Description_1 = descs.ElementAt(0);
-                    aboutvm.Description_2 = descs.ElementAt(1);
-                    aboutvm.Description_3 = descs.ElementAt(2);
-                    aboutvm.Description_4 = descs.ElementAt(3);
+                    string[] sentences = Regex.Split(db_about.Description, @"(?<=[\.!\?])");
+                    aboutSentences = sentences.ToList();
+                    for (int i = 0; i < aboutSentences.Count; i++)
+                    {
+                        if (i < 7)
+                            aboutvm.Description_1 += aboutSentences[i];
+                        else if (i > 7 && i < 14)
+                            aboutvm.Description_2 += aboutSentences[i];
+                        else if (i > 14 && i < 21)
+                            aboutvm.Description_3 += aboutSentences[i];
+                        else
+                            aboutvm.Description_4 += aboutSentences[i];
+                    }
                 }
+                aboutvm.Image = db_about.Image;
+                aboutvm.Title = db_about.Title;
             }
-            aboutvm.Image=db_about.Image;
-            aboutvm.Title=db_about.Title;
             return View(aboutvm);
         }
         public IEnumerable<string> CustomSplit( string str, int n)

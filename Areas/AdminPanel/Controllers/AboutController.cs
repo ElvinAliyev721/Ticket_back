@@ -43,7 +43,7 @@ namespace Ticket.Areas.AdminPanel.Controllers
         {
             if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid)
             {
-                return RedirectToAction(nameof(Index));
+                return View(about);
             }
             if (!ModelState.IsValid)
             {
@@ -68,12 +68,6 @@ namespace Ticket.Areas.AdminPanel.Controllers
                 await about.Photo.CopyToAsync(fileStream);
             }
             about.Image = fileName;
-            //About newAbout = new About
-            //{
-            //    Title = about.Title,
-            //    Description = about.Description,
-            //    Image = about.Image,
-            //};
             await _context.Abouts.AddAsync(about);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

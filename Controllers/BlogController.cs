@@ -59,6 +59,9 @@ namespace Ticket.Controllers
             {
                 Blog blog = await _context.Blogs.FindAsync(id);
                 blog.Image = Helper.GetImage(Convert.ToBase64String(blog.Image));
+                blog.Views += 1;
+                _context.Blogs.Update(blog);
+                await _context.SaveChangesAsync();
                 return View(blog);
             }
             catch (Exception)

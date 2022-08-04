@@ -5,12 +5,12 @@
     "\\Areas\\AdminPanel",
     "\\Areas\\AdminPanel\\Controllers",
     "\\Areas\\AdminPanel\\Views",
-    "\\Areas\\AdminPanel\\Views\\Blog",
+    "\\Areas\\AdminPanel\\Views\\Category",
     "\\Controllers",
     "\\Views",
     "\\Views\\Blog",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Views\\Shared\\_AdminLayout.cshtml",
+  "SelectedNode": "\\Controllers\\AccountController.cs",
   "PreviewInSolutionExplorer": false
 }

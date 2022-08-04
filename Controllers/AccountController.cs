@@ -98,10 +98,10 @@ namespace Ticket.Controllers
                 }
                 return View(registerVM);
             }
-            await _signInManager.SignInAsync(user, false);
+            //await _signInManager.SignInAsync(user, true);
             
             await _userManager.AddToRoleAsync(user, roleforregister);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
         }
         public async Task<IActionResult> LogOut()
         {

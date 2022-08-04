@@ -205,5 +205,39 @@ namespace Ticket.Areas.AdminPanel.Controllers
                 return Json(data);
             }
         }
+
+        [HttpPost]
+        public async Task<JsonResult> DeleteWarrant(int id)
+        {
+            try
+            {
+                Warrant warrant = await _context.Warrants.FindAsync(id);
+                warrant.IsDeleted = true;
+                _context.Warrants.Update(warrant);
+                await _context.SaveChangesAsync();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ActivateWarrant(int id)
+        {
+            try
+            {
+                Warrant warrant = await _context.Warrants.FindAsync(id);
+                warrant.IsDeleted = false;
+                _context.Warrants.Update(warrant);
+                await _context.SaveChangesAsync();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
     }
 }

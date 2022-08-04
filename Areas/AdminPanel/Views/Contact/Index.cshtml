@@ -1,4 +1,4 @@
-﻿@model List<Contact>
+﻿@model IPagedList<Contact>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -13,10 +13,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-uppercase text-center"> NO.</th>
-                                <th scope="col" class="text-uppercase text-center">Name</th>
+                                <th scope="col" class="text-uppercase text-center">#</th>
+                                <th scope="col" class="text-uppercase text-center">Başlıq</th>
                                 <th scope="col" class="text-uppercase text-center">Email</th>
-                                <th scope="col" class="text-uppercase text-center">Settings</th>
+                                <th scope="col" class="text-uppercase text-center">Əməliyyatlar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,10 +27,9 @@
                                     <td scope="row">@item.Name</td>
                                     <td scope="row">@item.Email</td>
                                     <td class="text-center">
-                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Məlumat</a>
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
-                                            @*<i class="far fa-trash-alt tm-product-delete-icon"></i>*@
-                                            Sil
+                                        <a onclick="ContactDetails(@item.Id)" class="btn btn-dark"><i class='bx bxs-info-square' ></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Contact" class="btn btn-dark">
+                                            <i class='bx bxs-trash'></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -40,6 +39,50 @@
                 </div>
             </div>
         }
+
+        else{
+            <div class="w-100 text-center">
+                <h2>Heç bir mesajınız yoxdur!</h2>
+            </div>
+        }
 </div>
 </div>
 
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "Contact", new { page }), new PagedListRenderOptions
+{
+    PageClasses = new string[] { "page-link bg-dark text-light border-dark" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    ContainerDivClasses = new string[] { "p-1 pt-3" },
+    ActiveLiElementClass = "active-page"
+})
+
+<script>
+        function ContactDetails(cat_id) {
+            $(function () {
+                $.ajax({
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    type: 'GET',
+                    url: '/AdminPanel/Contact/ContactDetails/',
+                    data: { id: cat_id },
+                    success: function (myvalue) {
+                        let data = jQuery.parseJSON(myvalue);
+                        Swal.fire({
+                            title: `<div class="text-center">Mesajın detalları</div>`,
+                            html:
+                                `<h4 class="text-info"><b>#${data.Id} - ${data.Name}</b></h4>
+                                    <hr>
+                                    <h6><b>${data.Email}</b></h6>
+                                    <h6><span>${data.SendedTime}</span></h6>
+                                    <hr>
+                                    <p>${data.Message}</p>`,
+                            showCloseButton: true,
+                            focusConfirm: false,
+                        });
+                    }
+                })
+            });
+        }
+</script>

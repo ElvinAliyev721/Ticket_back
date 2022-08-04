@@ -50,6 +50,10 @@ namespace Ticket
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
+            }
 
             app.UseAuthentication();
             app.UseRouting();
