@@ -7,7 +7,7 @@ namespace Ticket.Models
     public class About {
         [Key]
         public int Id { get; set; }
-        [Required,MinLength(25)]
+        [Required,MinLength(15)]
         public string Title { get; set; }
         [Required,MinLength(120)]
         public string Description { get; set; }

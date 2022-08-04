@@ -147,5 +147,39 @@ namespace Ticket.Areas.AdminPanel.Controllers
                 return Json(data);
             }
         }
+
+        [HttpPost]
+        public async Task<JsonResult> DeleteCategory(int id)
+        {
+            try
+            {
+                Category category = await _context.Categories.FindAsync(id);
+                category.IsDeleted = true;
+                _context.Categories.Update(category);
+                await _context.SaveChangesAsync();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ActivateCategory(int id)
+        {
+            try
+            {
+                Category category = await _context.Categories.FindAsync(id);
+                category.IsDeleted = false;
+                _context.Categories.Update(category);
+                await _context.SaveChangesAsync();
+                return Json("Success");
+            }
+            catch (Exception)
+            {
+                return Json("Fail");
+            }
+        }
     }
 }
